@@ -1,0 +1,63 @@
+{"intents": [
+    {"tag": "salam1",
+     "patterns": ["Hi", "Halo", "Hello", "Helo", "Apa kabar","Hey","Hola", "Hello", "Hai", "Tes", "Cek"],
+     "responses": ["Hello, ada yang bisa dibantu?", "Senang bertemu Anda kembali :)", "Halo, katakan apa yang Anda inginkan!", "Hai, apakah Anda perlu bantuan?", "Hai, beri tahu apa yang bisa saya bantu!", "Hai, ada yang bisa saya bantu?", "Katakan apa yang Anda inginkan saat ini!", "Senang rasanya kita dapat berjumpa kembali", "Hai, alhamdulillah ya kita bisa bercakap bersama"]
+    },
+    {"tag": "salam2",
+     "patterns": ["Assalamu'alaikum", "Assalamualaikum", "Assalamu'alaikum Warahmatullahi Wabarakatuh", "Assalamu'alaikum Warohmatulloh", "Assalamualaikum Warahmatullah"],
+     "responses": ["Wa'alaikumsalam Warahmatullahi Wabarakatuh.", "Wa'alaikumsalam", "Wa'alaikumsalam Warohmatullahi Wabarokatuh"]
+    },
+    {"tag": "nama",
+     "patterns": ["Siapa kamu?", "Siapa namamu?", "Ini dengan siapa ya?", "Siapa disana?", "Dengan siapa disana?","Boleh tahu siapa namanya?","Who are you?", "Kenalin dong kamu ini siapa", "Kamu siapa?", "Siapakah kamu?", "Saya berbicara dengan siapa ya?"],
+     "responses": ["Kenalin saya Aweshome yang akan membantu Anda menciptakan awesome and smart home.", "Senang bertemu denganmu, saya Aweshome yang siap membantu Anda.", "Halo, saya Aweshome. Senang bisa membantu Anda.", "Hai, ini dengan Aweshome. Ada yang bisa saya bantu?", "Aweshome disini, beritahu apa yang Anda inginkan?", "Aweshome hadir sebagai solusi mewujudkan rumah yang awesome dan smart tentunya. Ada yang bisa saya bantu?", "I'm Aweshome. What can I do for you?", "Aweshome here. I will help you to build awesome and smart home. Are you ready?"]
+    },
+    {"tag": "kabar",
+     "patterns": ["Apa kabar?", "Bagaimana kabarmu?", "Gimana kabarnya?", "Apa kabar Anda?", "Bagaimana kabar Anda", "Apakah Anda baik-baik saja?", "How are you?"],
+     "responses": ["Saya disini baik-baik saja.", "Tidak ada yang perlu dikhawatirkan.", "Tentu saja baik.", "Terima kasih sudah bertanya. Saya disini baik-baik saja.", "Saya baik, katakan apa yang Anda inginkan!"]
+    },
+    {"tag": "bantu",
+    "patterns": ["Bisakah kamu membantuku?", "Kamu bisa membantuku?", "Apakah kamu bisa bantu aku?", "Tolong beri saya bantuan", "Apa kamu bisa bantu?", "Apa yang bisa kamu lakukan untukku?", "Aku perlu bantuan", "Aku butuh bantuan", "Aku ingin bantuan", "Aku ingin dibantu", "Tolong bantu aku", "Tolong bantulah aku"],
+    "responses": ["Katakan apa yang bisa saya bantu", "Katakan apa yang bisa saya lakukan untuk Anda", "Tentu, apa yang bisa saya lakukan untukmu?"]
+    },
+      {"tag": "kondisi_rumah",
+     "patterns": ["Apakah rumah dalam kondisi aman?", "Bagaimana kondisi rumah saat ini?", "Bagaimana kondisi lampu saat ini?", "Bagaimana kondisi lampu di rumah saat ini?", "Bagaimana kondisi pintu saat ini?", "Bagaimana kondisi pintu di rumah saat ini?", "Bagaimana kondisi kompor gas saat ini?", "Bagaimana kondisi kompor gas di rumah saat ini?"],
+     "responses": []
+    },
+    {"tag": "perpisahan",
+     "patterns": ["Bye", "Sampai jumpa", "Dadah", "Selamat tinggal", "Dah", "Daah", "Sampai jumpa lagi"],
+     "responses": ["Sampai jumpa lagi!", "Semoga harimu menyenangkan!", "Sampai jumpa", "Daah! Kalau ada masalah silakan hubungi saya lagi."]
+    },
+    {"tag": "terima_kasih",
+     "patterns": ["Terima kasih", "Terimakasih", "Terimakasi", "Thank", "Thanku", "Thank u", "Thank you", "Makasih", "Terima kasih sudah membantu", "Thanks", "Suwon", "Hatur nuhun", "Nuhun", "Maaci", "Maaciw", "Makasi", "Sembah nuwun"],
+     "responses": ["Senang membantu Anda", "Sama-sama", "Dengan senang hati", "Terima kasih kembali", "Kembali kasih", "Sami-sami"]
+    },
+    {"tag": "lampu_nyala",
+    "patterns": ["Nyalakan lampu!", "Nyalakan lampunya", "Tolong nyalakan lampu!", "Lampunya nyalakan dong", "Nyalakan lampu sekarang", "Bagaimana kondisi lampu saat ini, tolong dinyalakan!", "Lampunya sudah nyala? Tolong dinyalakan lampunya!", "Kamu bisa menyalakan lampu?", "Kamu bisa nyalakan lampu?", "Pastikan lampu menyala", "Lampunya sudah dinyalakan?", "Nyalakanlah lampunya", "Nyalakan lampunya dong", "Nyalakan lampu dong", "Pastikan lampunya menyala sekarang", "Pastikan lampu nyala sekarang", "Keadaan gelap, nyalakan lampunya!", "Kondisi rumah gelap, nyalakanlah lampunya", "Bisakah kamu menyalakan lampu?", "Bisakah kamu nyalakan lampu", "Buat lampunya nyala", "Buat lampunya menyala", "Buat lampu nyala", "Jadikan lampu bersinar", "Terangi ruangan dengan lampu yang menyala", "Buat ruangan terang dengan nyalakan lampu", "Lampu di rumah tolong dinyalakan", "Saya sedang di luar, nyalakan lampu sekarang", "Saya sedang tidak di rumah, tolong lampunya dinyalakan ya", "Nyalakan lampuu", "Nyalakanlampu", "Lampunyala dong", "Lampunyala sekarang"],
+    "responses": ["Siap, lampu sudah menyala", "Lampu saat ini sudah menyala", "Sesuai perintah, lampu sudah dinyalakan", "Sip, lampu sudah nyala", "Hai, lampu sudah menyala dengan terang", "Saat ini lampu rumah Anda sudah menyala", "Saat ini rumah lampu Anda sudah nyala", "Saat ini rumah lampu Anda sudah dinyalakan"]
+    },
+    {"tag": "lampu_mati",
+    "patterns": ["Matikan lampu!", "Matikan lampunya", "Tolong matikan lampu!", "Lampunya matikan dong", "Matikan lampu sekarang", "Bagaimana kondisi lampu saat ini, tolong dimatikan!", "Lampunya sudah mati? Tolong dimatikan lampunya!", "Kamu bisa mematikan lampu?", "Kamu bisa matikan lampu?", "Pastikan lampu mati", "Pastikan lampu dalam kondisi mati", "Lampunya sudah dimatikan?", "Matikanlah lampunya", "Tolong matikan lampunya", "Matahari sudah bersinar, matikan lampunya sekarang", "Matikan lamou", "Lampunya mastikan sekarang juga", "Kondisi sudah terang, matikan lamounya ya", "Kondisi sudah terang, matikan lampunya ya", "Lampunya pastikan sudah mati sekarang", "Hei, matikan dong lampunya", "Bolehkah aku minta tolong untuk mematikan lampu?", "Mohon bantuannya untuk matikan lampu", "Aku perlu bantuanmu untuk mematikan lampu", "Aku sedang di luar, matikan lampunya ya", "Aku sedang tidak di rumah, bantu dengan mematikan lampu ya", "Apakah kamu bisa mematikan lampu?", "Apakah kamu bisa membuat lampu menjadi mati", "Buat lampu menjadi mati dong"],
+    "responses": ["Siap, lampu sudah mati", "Lampu saat ini sudah mati", "Sesuai perintah, lampu sudah dimatikan", "Sip, lampu di rumah Anda sudah dimatikan", "Baik, lampu rumah Anda sudah dalam keadaan mati", "Ya, sudah dilaksanakan. Lampu sudah dalam kondisi off"]
+    },
+    {"tag": "pintu_buka",
+    "patterns": ["Buka pintu sekarang!", "Buka pintunya", "Tolong buka pintu!", "Buka pintunya dong", "Buka pintunya sekarang", "Bagaimana kondisi pintu saat ini, tolong dibuka!", "Pintunya sudah dibuka? Tolong dibuka pintunya!", "Kamu bisa membuka pintu?", "Kamu bisa buka pintu", "Kamu bisa buka pintunya?", "Pastikan pintunya terbuka", "Pintunya sudah dibuka?", "Bukalah pintunya", "Gelap nih, buka pintu sekarang", "Sepertinya ada tamu, tolong buka pintunya ya", "Hei, ada tamu di depan. Tolong buka pintunya", "Cuaca panas nih, buka pintunya ya", "Sepertinya lebih baik kalau pintu dibuka. Minta tolong buka pintunya ya", "Bukakan pintunya, didepan ada tamu", "Ada orang tuh, bukakan pintu untuknya", "Tolong bukakan pintu", "Buat pintu menjadi terbuka sekarang", "Apakah kamu bisa membuat pintu terbuka?", "Bisakah kamu membukakan pintu?", "Apakah kamu bisa membukakan pintu?"],
+    "responses": ["Siap, pintu sudah terbuka.", "Sip, pintu sudah dibuka.", "Siap laksanakan, pintu sudah dibuka", "Pintu sudah dibuka", "Pintu sudah dibuka", "Saat ini pintu sudah dibuka."]
+    },
+    {"tag": "pintu_tutup",
+    "patterns": ["Tutup pintu sekarang!", "Tutup pintunya", "Tolong tutup pintu!", "Tutup pintunya dong", "Tutup pintunya sekarang", "Bagaimana kondisi pintu saat ini, tolong ditutup!", "Pintunya sudah ditutup? Tolong ditutup pintunya!", "Kamu bisa menutup pintu?", "Kamu bisa nutup pintu", "Pastikan pintunya tertutup", "Pintunya sudah ditutup?", "Tutuplah pintunya", "Apakah kamu bisa tutup pintu?", "Hari sudah gelap, tutuplah pintunya", "Bisakah kamu menutup pintu?", "Bisakah kamu menutupkan pintu", "Tutupkan pintunya dong", "Tolong tutup pintu untukku", "Hari sudah petang, tutuplah pintunya", "Bantu aku dengan menutup pintunya ya", "Tutup dan kunci pintunya sekarang", "Kunci pintunya", "Kunci pintunya sekarang", "Kuncilah pintunya", "Kunci pintu"],
+    "responses": ["Siap, pintu sudah tertutup rapat.", "Sip, pintu sudah dikunci.", "Siap laksanakan, pintu sudah ditutup", "Pintu sudah dikunci", "Pintu sudah ditutup", "Saat ini pintu sudah ditutup."]
+    },
+    {"tag": "jemuran_masuk",
+     "patterns": ["Apakah jemuran sudah diangkat?", "Tolong angkat jemurannya", "Masukkan jemurannya", "Apakah sedang turun hujan? Jemurannya tolong dimasukkan", "Apakah sedang mendung? Jemurannya tolong diangkat", "Bagaimana kondisi cuaca di rumah? Angkat jemurannya dong", "Apakah di rumah sedang hujan? Masukkan jemurannya dong!", "Angkat jemurannya sekarang", "Masukkan jemurannya sekarang", "Pastikan jemurannya sudah dimasukkan", "Jemurannya masukin ke dalam ya", "Jangan biarkan jemurannya kehujanan", "Apakah pakaian sudah diangkat?", "Tolong angkat pakaiannya", "Masukkan pakaiannya", "Apakah sedang turun hujan? Pakaiannya tolong dimasukkan", "Apakah sedang mendung? Pakaiannya tolong diangkat", "Bagaimana kondisi cuaca di rumah? Angkat Pakaiannya dong", "Apakah di rumah sedang hujan? Masukkan pakaiannya dong!", "Angkat pakaiannya sekarang", "Masukkan pakaiannya sekarang", "Pastikan pakaiannya sudah dimasukkan", "Pakaiannya masukin ke dalam ya", "Jangan biarkan pakaiannya kehujanan"],
+     "responses": ["Siap,saat ini jemuran sudah diangkat", "Sip, jemuran sudah dimasukkan ke dalam rumah", "Jemuran sudah aman", "Jemuran aman terkendali", "Yah, jemuran Anda sudah kering dan dimasukkan ke dalam rumah", "Jemuran sudah diangkat", "Jemuran sudah dimasukkan ke dalam rumah", "Siap, jemuran sudah dimasukkan ke dalam rumah Anda"]
+    },
+    {"tag": "jemuran_keluar",
+     "patterns": ["Apakah jemuran sudah dikeluarkan?", "Tolong keluarkan jemurannya", "Keluarkan jemurannya", "Apakah sedang turun hujan? Jemurannya tolong dikeluarkan", "Apakah sedang mendung? Jemurannya tolong dikeluarkan", "Bagaimana kondisi cuaca di rumah? Keluarkan jemurannya dong", "Apakah di rumah sedang hujan? Keluarkan jemurannya dong!", "Keluarkan jemurannya sekarang", "Keluarkan jemurannya sekarang", "Pastikan jemurannya sudah dikeluarkan", "Jemurannya keluarin ke dalam ya", "Jangan biarkan jemurannya ngga kepanasan", "Apakah pakaian sudah dikeluarkan?", "Tolong keluarkan pakaiannya", "Keluarkan pakaiannya", "Apakah sedang turun hujan? Pakaiannya tolong dikeluarkan", "Apakah sedang mendung? Pakaiannya tolong dikeluarkan", "Bagaimana kondisi cuaca di rumah? Keluarkan Pakaiannya dong", "Apakah di rumah sedang hujan? Keluarkan pakaiannya dong!", "Keluarkan pakaiannya sekarang", "Keluarkan pakaiannya sekarang", "Pastikan pakaiannya sudah dikeluarkan", "Pakaiannya keluarin ke dalam ya", "Jangan biarkan pakaiannya ngga kepanasan"],
+     "responses": ["Siap,saat ini jemuran sudah dikeluarkan", "Sip, jemuran sudah dikeluarkan", "Siap, jemuran sudah ada di luar", "Jemuran sudah aman", "Jemuran aman terkendali", "Yah, jemuran Anda sudah dikeluarkan", "Jemuran sudah dikeringkan", "Jemuran sudah dikeluarkan ya", "Siap, jemuran sudah diletakkan di luar rumah"]
+    },
+    {"tag": "noanswer",
+     "patterns": [],
+     "responses": ["Maaf, saya tidak bisa memahami maksud Anda", "Tolong beri saya pesan yang lain", "Maaf saya tidak paham", "Boleh diulangi? Saya kurang paham.", "Beritahu apa yang harus saya lakukan lagi?"]
+    }
+]
+}
