@@ -33,8 +33,6 @@ from tensorflow.keras.layers import Input, Embedding, LSTM , Dense,GlobalMaxPool
 from tensorflow.keras.models import Model
 import matplotlib.pyplot as plt
 
-tf.__version__
-
 #code for import the dataset that have been created in JSON format
 with open('intents.json') as content:
   data1 = json.load(content)
