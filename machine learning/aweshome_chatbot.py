@@ -33,6 +33,8 @@ from tensorflow.keras.layers import Input, Embedding, LSTM , Dense,GlobalMaxPool
 from tensorflow.keras.models import Model
 import matplotlib.pyplot as plt
 
+tf.__version__
+
 #code for import the dataset that have been created in JSON format
 with open('intents.json') as content:
   data1 = json.load(content)
@@ -46,7 +48,7 @@ for intent in data1['intents']:
   for lines in intent['patterns']:
     patterns.append(lines)
     tags.append(intent['tag'])
-    
+
 #code for convert the data to dataframe
 data = pd.DataFrame({"inputs":patterns,
                      "tags":tags})
@@ -84,6 +86,67 @@ print("number of unique words : ",vocabulary)
 output_length = lbl_encoder.classes_.shape[0]
 print("output length: ",output_length)
 
+from tensorflow.keras.preprocessing.text import Tokenizer
+import string
+import random
+
+def chat(user_text, kondisiRumah_array):
+  texts_p = []
+  kondisiLampu = kondisiRumah_array[0] 
+  kondisiPintu = kondisiRumah_array[1] 
+  kondisiJemuran = kondisiRumah_array[2] 
+  kondisiGas = kondisiRumah_array[3] 
+  # Check kondisi lampu
+  if kondisiLampu==False:
+    kondisiLampu='mati'
+  else:
+    kondisiLampu='nyala'
+    # Check kondisi pintu
+  if kondisiPintu==False:
+    kondisiPintu='terbuka'
+  else:
+    kondisiPintu='terkunci'
+  # Check kondisi jemuran
+  if kondisiJemuran==False:
+    kondisiJemuran='kehujanan'
+  else:
+    kondisiJemuran='aman'
+  # Check kondisi gas
+  if kondisiGas==False:
+    kondisiGas='mati'
+  else:
+    kondisiGas='nyala'
+
+  #removing punctuation and converting to lowercase
+  prediction_input = [letters.lower() for letters in user_text if letters not in string.punctuation]
+  prediction_input = ''.join(prediction_input)
+  texts_p.append(prediction_input)
+
+  #tokenizing and padding
+  prediction_input = tokenizer.texts_to_sequences(texts_p)
+  prediction_input = np.array(prediction_input).reshape(-1)
+  prediction_input = pad_sequences([prediction_input],input_shape)
+
+  #getting output from model
+  output = model.predict(prediction_input)
+  output = output.argmax()
+  response_tag = lbl_encoder.inverse_transform([output])[0]
+
+  #finding the right tag and predicting
+  response_tag = lbl_encoder.inverse_transform([output])[0]
+  if response_tag == "perpisahan":
+    print("Aweshome : ",random.choice(responses['perpisahan']))
+  elif response_tag == "kondisi_rumah":
+    #lampu, pintu, jemuran, gas = getSensor()
+    kondisiRumah = []
+    print("Aweshome: kondisi lampu", kondisiLampu, "kondisi pintu", kondisiPintu, "kondisi jemuran", kondisiJemuran, "kondisi gas", kondisiGas)
+    text = input("You: ")
+    chat(text, kondisiRumah_array)
+  else:
+    print("Aweshome : ",random.choice(responses[response_tag]))
+    text = input("You: ")
+    chat(text, kondisiRumah_array)
+
 #code for create the model
 
 i = Input(shape=(input_shape,))
@@ -99,7 +162,7 @@ model.summary()
 model.compile(loss="sparse_categorical_crossentropy",optimizer='adam',metrics=['accuracy'])
 
 #code for train the model
-train = model.fit(x_train,y_train,epochs=100)
+train = model.fit(x_train,y_train,epochs=500)
 
 #code for plot accuracy model
 plt.figure(figsize=(8, 8))
@@ -146,6 +209,18 @@ converter.target_spec.supported_ops = [tf.lite.OpsSet.TFLITE_BUILTINS, tf.lite.O
 tfmodel = converter.convert()
 open('model.tflite', 'wb').write(tfmodel)
 
+from nltk.metrics import *
+model.fit(x_train, y_train)
+# save the model to disk
+filename = 'finalized_model.sav'
+pickle.dump(model, open(filename, 'wb'))
+
+from nltk.metrics import *
+model.fit(x_train, y_train)
+# save the model to disk
+filename = 'finalized_model.pkl'
+pickle.dump(model, open(filename, 'wb'))
+
 import tensorflow as tf
 
 interpreter = tf.lite.Interpreter(model_path="model.tflite")
@@ -163,41 +238,37 @@ print('\n{} output(s):'.format(len(outputs)))
 for i in range(0, len(outputs)):
     print('{} {}'.format(outputs[i]['shape'], outputs[i]['dtype']))
 
-# make function for getting the data and set the condition for input and output    
 from tensorflow.keras.preprocessing.text import Tokenizer
 import string
 import random
 
-def getSensor(kondisi_rumah): #kondisiLampu=False, kondisiPintu=False, kondisiJemuran=False
-  kondisiLampu = kondisi_rumah[0] 
-  kondisiPintu = kondisi_rumah[1] 
-  kondisiJemuran = kondisi_rumah[2] 
-  kondisiGas = kondisi_rumah[3] 
-  #kondisiLampu
+def chat(user_text, kondisiRumah_array):
+  texts_p = []
+  kondisiLampu = kondisiRumah_array[0] 
+  kondisiPintu = kondisiRumah_array[1] 
+  kondisiJemuran = kondisiRumah_array[2] 
+  kondisiGas = kondisiRumah_array[3] 
+  # Check kondisi lampu
   if kondisiLampu==False:
     kondisiLampu='mati'
   else:
     kondisiLampu='nyala'
-   #kondisiPintu
+    # Check kondisi pintu
   if kondisiPintu==False:
     kondisiPintu='terbuka'
   else:
     kondisiPintu='terkunci'
-  #kondisiJemuran
+  # Check kondisi jemuran
   if kondisiJemuran==False:
     kondisiJemuran='kehujanan'
   else:
     kondisiJemuran='aman'
-  #kondisiGas
+  # Check kondisi gas
   if kondisiGas==False:
     kondisiGas='mati'
   else:
     kondisiGas='nyala'
-  return kondisiLampu, kondisiPintu, kondisiJemuran, kondisiGas
 
-def chat(user_text):
-  texts_p = []
-  #print('You : ', user_text)
   #removing punctuation and converting to lowercase
   prediction_input = [letters.lower() for letters in user_text if letters not in string.punctuation]
   prediction_input = ''.join(prediction_input)
@@ -215,18 +286,19 @@ def chat(user_text):
 
   #finding the right tag and predicting
   response_tag = lbl_encoder.inverse_transform([output])[0]
-  if response_tag == "kondisi_lampu":
-    lampu, pintu, jemuran, gas = getSensor()
-    print("Aweshome: kondisi lampu", lampu, "kondisi pintu", pintu, "kondisi jemuran", jemuran, "kondisi gas", gas)
-    text = input("You: ")
-    chat(text)
-  elif response_tag == "perpisahan":
+  if response_tag == "perpisahan":
     print("Aweshome : ",random.choice(responses['perpisahan']))
+  elif response_tag == "kondisi_rumah":
+    #lampu, pintu, jemuran, gas = getSensor()
+    kondisiRumah = []
+    print("Aweshome: kondisi lampu", kondisiLampu, ", kondisi pintu", kondisiPintu, ", kondisi jemuran", kondisiJemuran, ", dan kondisi gas", kondisiGas)
+    text = input("You: ")
+    chat(text, kondisiRumah_array)
   else:
     print("Aweshome : ",random.choice(responses[response_tag]))
     text = input("You: ")
-    chat(text)  
+    chat(text, kondisiRumah_array)
 
-# start chatiing
 inp = input("You: ")
-chat(inp)
+kondisi = [False, False, True, False]
+chat(inp, kondisi)
